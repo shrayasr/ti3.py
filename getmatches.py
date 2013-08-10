@@ -25,7 +25,7 @@ def getMatchLinks(url,dumpFile):
 
         matchProcessing = matchProcessing + 1
 
-        print "Processing " + matchProcessing + " of "+totalNoOfGames
+        print "Processing " + str(matchProcessing) + " of "+ str(totalNoOfGames)
 
         page = urllib2.urlopen(matchLink)
         soup = BeautifulSoup(page)
