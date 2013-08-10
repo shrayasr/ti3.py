@@ -1,11 +1,10 @@
 import urllib2
+import sys
 from BeautifulSoup import BeautifulSoup
 
-def getMatchLinks(url,dumpFile):
+def dumpMatchLinks(url,dumpFile):
 
     f = open(dumpFile,'w')
-
-    gamesData = []
 
     page = urllib2.urlopen(url)
     soup = BeautifulSoup(page.read())
@@ -17,6 +16,7 @@ def getMatchLinks(url,dumpFile):
     matchProcessing = 0
 
     for game in games:
+
         p1 = game.find('div',{'class':'sgrTeamAName'}).text
         p2 = game.find('div',{'class':'sgrTeamBName'}).text
         matchLink = game.find('div',{'class':'sgrMatch'}).find('a')['href']
@@ -40,15 +40,16 @@ def getMatchLinks(url,dumpFile):
                 matchLinkEnglish = castLink['href']
                 matchCasters = castLinkText.split(":")[1]
 
-        gameData = {
-                "p1":p1,
-                "p2":p2,
-                "match_link":matchLinkEnglish
-        };
-
         dumpLine = "##"+p1+" vs "+p2+"\n"+"["+matchCasters+"]("+matchLinkEnglish+")\n\n"
         f.write(dumpLine)
 
-        gamesData.append(gameData)
+matchFile = sys.argv[1]
 
-getMatchLinks('http://www.dota2.com/international/prelims/schedule/saturday/','saturday.md')
+with open(matchFile) as f:
+    matches = f.readlines()
+
+for match in matches:
+    matchURL = match.split(" ")[0]
+    matchDumpFile = match.split(" ")[1]
+
+    dumpMatchLinks(matchURL,matchDumpFile)

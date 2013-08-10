@@ -1,0 +1,3 @@
+http://www.dota2.com/international/prelims/schedule/saturday/ op/prelims/saturday.md
+http://www.dota2.com/international/prelims/schedule/sunday/ op/prelims/sunday.md
+http://www.dota2.com/international/prelims/schedule/monday/ op/prelims/monday.md
