@@ -1,0 +1,4 @@
+http://www.dota2.com/international/mainevent/schedule/wednesday/ op/mains/wednesday.md
+http://www.dota2.com/international/mainevent/schedule/thursday/ op/mains/thursday.md
+http://www.dota2.com/international/mainevent/schedule/friday/ op/mains/friday.md
+http://www.dota2.com/international/mainevent/schedule/saturday/ op/mains/saturday.md
